@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<robot name="arm" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- base link/frame (link 0) for arm-->
+  <link name="arm_link_0">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.02725"/>
+      <geometry>
+        <box size="0.1143 0.1143 0.0545"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.02725"/>
+      <geometry>
+        <box size="0.1143 0.1143 0.0545"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- first joint that connects link 0 with link 1 -->
+  <joint name="arm_joint_1" type="revolute">
+    <parent link="arm_link_0"/>
+    <child link="arm_link_1"/>
+    <limit effort="5.0" lower="-3.1415926535" upper="3.1415926535" velocity="5.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0545"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- link 1 -->
+  <link name="arm_link_1">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.0615"/>
+      <geometry>
+        <box size="0.0402 0.05 0.123"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.0615"/>
+      <geometry>
+        <box size="0.0402 0.05 0.123"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <!-- CENTER OF MASS -->
+      <origin rpy="0 0 0" xyz="0 0 0.0615"/>
+      <mass value="0.190421352"/>
+      <!-- box inertia: 1/12*m(y^2+z^2), ... -->
+      <inertia ixx="0.000279744834534" ixy="0" ixz="0" iyy="0.000265717763008" iyz="0" izz="6.53151584738e-05"/>
+    </inertial>
+  </link>
+
+  <!-- second joint that connects link 1 with link 2 -->
+  <joint name="arm_joint_2" type="revolute">
+    <parent link="arm_link_1"/>
+    <child link="arm_link_2"/>
+    <limit effort="5.0" lower="-1.57079632679" upper="1.57079632679" velocity="5.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.123"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- link 2 -->
+  <link name="arm_link_2">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.1585"/>
+      <geometry>
+        <box size="0.0356 0.05 0.317"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.1585"/>
+      <geometry>
+        <box size="0.0356 0.05 0.317"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <!-- CENTER OF MASS -->
+      <origin rpy="0 0 0" xyz="0 0 0.1585"/>
+      <mass value="0.29302326"/>
+      <!-- box inertia: 1/12*m(y^2+z^2), ... -->
+      <inertia ixx="0.00251484771035" ixy="0" ixz="0" iyy="0.00248474836108" iyz="0" izz="9.19936757328e-05"/>
+    </inertial>
+  </link>
+
+  <!-- third joint that connects link 2 with link 3 -->
+  <joint name="arm_joint_3" type="revolute">
+    <parent link="arm_link_2"/>
+    <child link="arm_link_3"/>
+    <limit effort="5.0" lower="-1.57079632679" upper="1.57079632679" velocity="5.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.317"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- link 3 -->
+  <link name="arm_link_3">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.101"/>
+      <geometry>
+        <box size="0.0356 0.05 0.202"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.101"/>
+      <geometry>
+        <box size="0.0356 0.05 0.202"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <!-- CENTER OF MASS -->
+      <origin rpy="0 0 0" xyz="0 0 0.101"/>
+      <mass value="0.21931466"/>
+      <!-- box inertia: 1/12*m(y^2+z^2), ... -->
+      <inertia ixx="0.000791433503053" ixy="0" ixz="0" iyy="0.000768905501178" iyz="0" izz="6.88531064581e-05"/>
+    </inertial>
+  </link>
+
+  <!-- fourth joint that connects link 3 with link 4 -->
+  <joint name="arm_joint_4" type="revolute">
+    <parent link="arm_link_3"/>
+    <child link="arm_link_4"/>
+    <limit effort="5.0" lower="-1.57079632679" upper="1.57079632679" velocity="5.0"/>
+    <origin rpy="0 0 0" xyz="0 0 0.202"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <!-- link 4 -->
+  <link name="arm_link_4">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0.08025"/>
+      <geometry>
+        <box size="0.0356 0.05 0.1605"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.08025"/>
+      <geometry>
+        <box size="0.0356 0.05 0.1605"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <!-- CENTER OF MASS -->
+      <origin rpy="0 0 0" xyz="0 0 0.08025"/>
+      <mass value="0.15813986"/>
+      <!-- box inertia: 1/12*m(y^2+z^2), ... -->
+      <inertia ixx="0.00037242266488" ixy="0" ixz="0" iyy="0.000356178538461" iyz="0" izz="4.96474819141e-05"/>
+    </inertial>
+  </link>
+
+  <!-- fixed joint that connects link 4 with end-effector (virtual link 5) -->
+  <joint name="arm_joint_5" type="fixed">
+    <parent link="arm_link_4"/>
+    <child link="arm_link_5"/>
+    <origin rpy="0 0 0" xyz="0 0 0.1605"/>
+  </joint>
+
+  <!-- end-effector frame (link 5) -->
+  <link name="arm_link_5"/>
+  <!-- END OF ARM LINKS/JOINTS -->
+</robot>
