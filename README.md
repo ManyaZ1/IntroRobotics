@@ -1,5 +1,5 @@
 # IntroRobotics
-Introduction to robotics course ECE_DK703 reports and code
+Introduction to robotics course ECE_DK703 projects: reports and code
 
 hw2: inverse kinematics
 
